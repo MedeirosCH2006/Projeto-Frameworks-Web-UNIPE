@@ -26,4 +26,4 @@ export const loginFailure = (error: string): AuthAction => ({
 export const logout = (): AuthAction => ({
   type: AuthActionTypes.LOGOUT,
 });
-++
+
