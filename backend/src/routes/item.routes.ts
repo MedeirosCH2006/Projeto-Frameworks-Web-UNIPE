@@ -1,13 +1,19 @@
+// src/routes/item.routes.ts (CORRIGIDO)
+
 import express from "express";
-import { getItems, addItem, updateItem, deleteItem } from "../controllers/itemController";
-import { authMiddleware } from "../middleware/auth";
+// ATENÇÃO: Mudamos de 'authMiddleware' para 'isAuthenticated'
+import { isAuthenticated } from "../middleware/auth"; 
+// OBS: Assumindo que os controllers do seu amigo estão corretos
+import { getItems, addItem, updateItem, deleteItem } from "../controllers/item.controller"; 
 
 
 const router = express.Router();
 
-router.get("/", authMiddleware, getItems);
-router.post("/", authMiddleware, addItem);
-router.put("/:id", authMiddleware, updateItem);
-router.delete("/:id", authMiddleware, deleteItem);
+// Todas as rotas agora usam o nome CORRETO do middleware
+router.get("/", isAuthenticated, getItems);
+router.post("/", isAuthenticated, addItem);
+router.put("/:id", isAuthenticated, updateItem);
+router.delete("/:id", isAuthenticated, deleteItem);
 
 export default router;
+

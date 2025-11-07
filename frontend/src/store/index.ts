@@ -1,29 +1,23 @@
-// index.ts
+// src/store/index.ts (FINAL COM THUNK)
 
-import { combineReducers, createStore, applyMiddleware, Reducer } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { thunk } from 'redux-thunk'; // <--- O MÍNIMO NECESSÁRIO PARA AÇÕES ASSÍNCRONAS
 
-// Reducers de Módulos
-import { authReducer } from './auth/reducer';
-import { itemsReducer } from './items/reducer';
+// Importa os reducers
+import authReducer from '../auth/reducer';
+// import itemReducer from '../items/reducer'; // Se este arquivo existir, descomente
 
-// Reducer Raiz: Combina todos os reducer
+// Combina os reducers
 const rootReducer = combineReducers({
   auth: authReducer,
-  items: itemsReducer,
+  // items: itemReducer, // Se existir, descomente
 });
 
-// Tipo do Estado Global
-export type RootState = ReturnType<typeof rootReducer>;
-
-// Middleware
-const middleware = [];
-
-// Configuração do Store
+// Cria a Store e aplica o Thunk (necessário para o login assíncrono)
 const store = createStore(
-  rootReducer as Reducer,
-  composeWithDevTools(applyMiddleware(...middleware))
+  rootReducer,
+  applyMiddleware(thunk) // <--- APLICA O MIDDLEWARE THUNK
 );
 
+export type RootState = ReturnType<typeof rootReducer>;
 export default store;
-

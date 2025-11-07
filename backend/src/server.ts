@@ -1,61 +1,54 @@
-// src/server.ts
+// src/server.ts (FINAL COM CORS GENÉRICO)
 
-import express, { Request, Response } from 'express';
-import cors from 'cors';
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors'; 
+import authRoutes from './routes/auth.routes';
+import itemRoutes from './routes/item.routes';
+
+dotenv.config();
 
 const app = express();
-const PORT = 3001; 
 
-app.use(express.json()); 
-app.use(cors()); 
+// Middleware de CORS: Aceita QUALQUER ORIGEM (*), resolvendo o bloqueio no Termux.
+app.use(cors({
+    origin: '*', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
-// SIMULAÇÃO DA API DE AUTENTICAÇÃO (Login)
-app.post('/api/auth/login', (req: Request, res: Response) => {
-  const { username, password } = req.body;
+// Middleware para que o Express entenda JSON
+app.use(express.json());
 
-  if (username && password) {
-    return res.status(200).json({ token: 'simulated_jwt_token_12345', userId: 'user1' });
-  }
+// Rotas da Aplicação
+app.use('/api/auth', authRoutes);
+app.use('/api/items', itemRoutes);
 
-  return res.status(401).json({ message: 'Credenciais inválidas.' });
+
+// Conexão com o MongoDB Atlas
+const MONGO_URI = process.env.MONGO_URI;
+if (!MONGO_URI) {
+    console.error("MONGO_URI não está definido no arquivo .env!");
+    process.exit(1);
+}
+
+mongoose.connect(MONGO_URI)
+    .then(() => console.log('✅ Conexão com MongoDB estabelecida com sucesso!'))
+    .catch(err => {
+        console.error('❌ Erro de conexão com MongoDB:', err);
+        process.exit(1);
+    });
+
+
+// Rota de teste simples
+app.get('/', (req, res) => {
+    res.send('API está funcionando!');
 });
 
-// SIMULAÇÃO DA API DE ITENS (Lista de Compras)
-let items = [
-    { id: "1", name: "Leite" },
-    { id: "2", name: "Pão Integral" }
-];
-
-app.get('/api/items', (req: Request, res: Response) => {
-  return res.status(200).json(items);
-});
-
-app.post('/api/items', (req: Request, res: Response) => {
-    const { name } = req.body;
-    if (!name) {
-        return res.status(400).json({ message: 'Nome do item é obrigatório.' });
-    }
-    const newItem = {
-        id: Date.now().toString(),
-        name: name
-    };
-    items.push(newItem);
-    return res.status(201).json(newItem);
-});
-
-app.delete('/api/items/:id', (req: Request, res: Response) => {
-    const { id } = req.params;
-    const initialLength = items.length;
-    items = items.filter(item => item.id !== id);
-
-    if (items.length < initialLength) {
-        return res.status(200).json({ message: 'Item deletado com sucesso.' });
-    }
-
-    return res.status(404).json({ message: 'Item não encontrado.' });
-});
-
-// INICIALIZAÇÃO
+// Inicia o servidor
+const PORT = 5000;
 app.listen(PORT, () => {
-  console.log();
+    console.log(`Backend Server rodando na porta ${PORT}`);
+    console.log('Rotas de Login e API carregadas.');
 });
