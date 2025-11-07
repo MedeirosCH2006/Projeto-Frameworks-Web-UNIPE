@@ -1,28 +1,61 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
+// src/server.ts
 
-import authRoutes from "./routes/auth.routes";
-import itemRoutes from "./routes/item.routes";
-
-
-dotenv.config();
+import express, { Request, Response } from 'express';
+import cors from 'cors';
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+const PORT = 3001; 
 
-const PORT = process.env.PORT || 5000;
+app.use(express.json()); 
+app.use(cors()); 
 
-mongoose.connect(process.env.MONGO_URI || "")
-  .then(() => console.log("✅ Conectado ao MongoDB"))
-  .catch(err => console.log("❌ Erro ao conectar ao MongoDB", err));
+// SIMULAÇÃO DA API DE AUTENTICAÇÃO (Login)
+app.post('/api/auth/login', (req: Request, res: Response) => {
+  const { username, password } = req.body;
 
-// ROTAS PRINCIPAIS
-app.use("/auth", authRoutes);
-app.use("/items", itemRoutes);
+  if (username && password) {
+    return res.status(200).json({ token: 'simulated_jwt_token_12345', userId: 'user1' });
+  }
 
+  return res.status(401).json({ message: 'Credenciais inválidas.' });
+});
+
+// SIMULAÇÃO DA API DE ITENS (Lista de Compras)
+let items = [
+    { id: "1", name: "Leite" },
+    { id: "2", name: "Pão Integral" }
+];
+
+app.get('/api/items', (req: Request, res: Response) => {
+  return res.status(200).json(items);
+});
+
+app.post('/api/items', (req: Request, res: Response) => {
+    const { name } = req.body;
+    if (!name) {
+        return res.status(400).json({ message: 'Nome do item é obrigatório.' });
+    }
+    const newItem = {
+        id: Date.now().toString(),
+        name: name
+    };
+    items.push(newItem);
+    return res.status(201).json(newItem);
+});
+
+app.delete('/api/items/:id', (req: Request, res: Response) => {
+    const { id } = req.params;
+    const initialLength = items.length;
+    items = items.filter(item => item.id !== id);
+
+    if (items.length < initialLength) {
+        return res.status(200).json({ message: 'Item deletado com sucesso.' });
+    }
+
+    return res.status(404).json({ message: 'Item não encontrado.' });
+});
+
+// INICIALIZAÇÃO
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+  console.log();
 });
