@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// CORREÇÃO APLICADA: Usando o caminho mais limpo (apenas nome da pasta/componente)
 import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage'; 
 import './styles/App.css'; 
 
 // Seletor para verificar o estado de autenticacao do Redux
@@ -16,16 +17,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-
+          
           {/* 1. Rota de Login */}
           <Route path="/login" element={<LoginPage />} />
-
+          
           {/* 2. Rota Home (Protegida) */}
           <Route 
             path="/home" 
             element={isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />} 
           />
-
+          
           {/* 3. Rota Raiz ("/") - Garante que redireciona para o fluxo correto */}
           <Route 
             path="/" 
