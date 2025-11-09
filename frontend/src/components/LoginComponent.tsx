@@ -1,68 +1,60 @@
-// src/components/LoginComponent.tsx - Versão de Teste com URL Fixa
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
-import { loginSuccess } from '../store/auth/actions';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../store/authSlice.ts';
 
 const LoginComponent: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // Use credenciais de teste para facilitar
+  const [username, setUsername] = useState('unipe'); 
+  const [password, setPassword] = useState('unipe'); 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      // CORREÇÃO: URL fixa do Backend 3001
-      const response = await axios.post('http://localhost:3001/api/auth/login', {
-        username,
-        password,
-      });
-
-      // Redux e Navegação
-      dispatch(loginSuccess(response.data.token || 'simulated-token'));
-      navigate('/home'); 
-
-    } catch (error) {
-      console.error('Login Falhou:', error);
-      alert('Falha de comunicação ou login inválido.');
-    } finally {
-      setLoading(false);
+    
+    // Nao estamos chamando a API de fato aqui, apenas simulando o sucesso
+    // A logica de autenticacao real sera feita no backend
+    if (username === 'unipe' && password === 'unipe') {
+        const loginPayload = { 
+            token: 'fake-jwt-token', 
+            user: { username, id: 'user-123' } 
+        };
+        dispatch(login(loginPayload));
+        navigate('/home'); // Redireciona para a home
+    } else {
+        alert('Credenciais invalidas. Use unipe/unipe.');
     }
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Login de Usuário</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <h2>Entrar</h2>
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="username">Usuário:</label>
           <input
-            id="username"
             type="text"
+            id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div style={{ marginTop: '10px' }}>
+        <div>
           <label htmlFor="password">Senha:</label>
           <input
-            id="password"
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit" style={{ marginTop: '20px' }} disabled={loading}>
-          {loading ? 'Entrando...' : 'Entrar'}
-        </button>
+        <button type="submit">Login</button>
+        <p style={{ marginTop: '10px', fontSize: '12px' }}>
+          Credenciais de teste: usuário 'unipe', senha 'unipe'
+        </p>
       </form>
     </div>
   );
