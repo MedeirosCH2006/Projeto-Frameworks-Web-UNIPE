@@ -35,6 +35,7 @@ Este projeto atende a todos os requisitos técnicos da ementa:
 
 ### 2. Configuração de Variáveis de Ambiente (Backend)
 
+**ATENÇÃO:** O avaliador **DEVE** criar um arquivo chamado `.env` na pasta `backend/` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
 
 ### 3. Instalação e Execução
 
@@ -62,7 +63,7 @@ Resultado Esperado: A aplicação abrirá no navegador. (O Frontend rodará na p
 
 ### 4. Credenciais de Teste
 
-Acesse a aplicação no navegador em: http://localhost:3000/login
+Acesse a aplicação no navegador em: `http://localhost:3000/login`
 
 Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
 
