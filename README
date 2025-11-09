@@ -6,6 +6,7 @@ Este é um projeto Full-Stack desenvolvido para a disciplina de Programação co
 
 | Nome do Aluno | RGM | Foco Principal na Contribuição |
 | :--- | :--- | :--- |
+| :--- | :--- | :--- |
 | **Rafael Medeiros de Melo** | 40483665 | Frontend (React, Redux, Sass, Lógica de Integração Full-Stack). |
 | **Mateus Jonathas Viana dos Santos** | 40354628 | Backend (Criação da API, Conexão com MongoDB, Lógica Inicial de JWT). |
 
@@ -18,6 +19,7 @@ Implementar um sistema de autenticação e gerenciamento de estado para um aplic
 Este projeto atende a todos os requisitos técnicos da ementa:
 
 | Componente | Tecnologia | Propósito |
+| :--- | :--- | :--- |
 | :--- | :--- | :--- |
 | **Backend** | Node.js (Express) & TypeScript | API RESTful e Lógica de Negócios. |
 | **Frontend** | React & TypeScript | Interface de Usuário. |
@@ -68,6 +70,7 @@ Acesse a aplicação no navegador em: `http://localhost:3000/login`
 Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
 
 | Campo | Valor |
+| :--- | :--- |
 | :--- | :--- |
 | **Usuário** | `unipe` |
 | **Senha** | `unipe` |
