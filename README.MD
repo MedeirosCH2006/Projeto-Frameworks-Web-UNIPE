@@ -1,1 +1,0 @@
-**ATENÇÃO:** O avaliador **DEVE** criar um arquivo chamado `.env` na pasta `backend/` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
