@@ -1,70 +1,74 @@
 # 📚 Projeto Frameworks Web - UNIPÊ 2025
-# 
-# Este é um projeto Full-Stack desenvolvido para a disciplina de Programação com Frameworks Web (P3/P4), sob orientação do Professor Jeofton Costa Melo.
-# 
-# ## 👥 Integrantes da Dupla
-# 
-# | Nome do Aluno | RGM | Foco Principal na Contribuição |
-# | :--- | :--- | :--- |
-# | **Rafael Medeiros de Melo** | 40483665 | Frontend (React, Redux, Sass, Lógica de Integração Full-Stack). |
-# | **Mateus Jonathas Viana dos Santos** | 40354628 | Backend (Criação da API, Conexão com MongoDB, Lógica Inicial de JWT). |
-# 
-# ## 🎯 Objetivo do Projeto
-# 
-# Implementar um sistema de autenticação e gerenciamento de estado para um aplicativo de **Lista de Compras Full-Stack**, atendendo ao requisito MVP (Minimum Viable Project).
-# ## 🛠️ Tecnologias Utilizadas (Requisitos Obrigatórios)
-# 
-# Este projeto atende a todos os requisitos técnicos da ementa:
-# 
-# | Componente | Tecnologia | Propósito |
-# | :--- | :--- | :--- |
-# | **Backend** | Node.js (Express) & TypeScript | API RESTful e Lógica de Negócios. |
-# | **Frontend** | React & TypeScript | Interface de Usuário. |
-# | **Estilização** | **Sass** | Estilização avançada da UI (requisito mínimo). |
-# | **Estado** | Redux Toolkit | Gerenciamento de estado e autenticação. |
-# | **Autenticação** | JWT (JSON Web Token) | Segurança e controle de acesso via tokens. |
-# | **Banco de Dados** | MongoDB Atlas (NoSQL) | Persistência dos dados de usuário e lista. |
-# ## 🚀 Como Rodar o Projeto
-# 
-# ### 1. Pré-requisitos
-# 
-# * Node.js (versão 18+)
-# * npm
-# 
-# ### 2. Configuração de Variáveis de Ambiente (Backend)
-# 
-# **ATENÇÃO:** O avaliador **DEVE** criar um arquivo chamado `.env` na pasta `backend/` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
-# 
-# ### 3. Instalação e Execução
-# 
-# O projeto deve ser iniciado em dois terminais separados a partir da raiz.
-# #### Terminal 1: Iniciar o Backend (API)
-# 
-# ```bash
-# cd backend/
-# npm install
-# npx ts-node src/server.ts
-# ```
-# **Resultado Esperado:** O terminal deve mostrar `✅ Conexão com MongoDB estabelecida com sucesso!` (A API rodará na porta 5000)
-# 
-# #### Terminal 2: Iniciar o Frontend (React)
-# 
-# ```bash
-# cd frontend/
-# npm install
-# npm start
-# ```
-# **Resultado Esperado:** A aplicação abrirá no navegador. (O Frontend rodará na porta 3000)
-# ### 4. Credenciais de Teste
-# 
-# Acesse a aplicação no navegador em: http://localhost:3000/login
-# 
-# Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
-# 
-# | Campo | Valor |
-# | :--- | :--- |
-# | **Usuário** | `unipe` |
-# | **Senha** | `unipe` |
-# 
-# Após o login bem-sucedido, o sistema deve redirecionar para a rota `/home`, exibindo a interface da Lista de Compras.
 
+Este é um projeto Full-Stack desenvolvido para a disciplina de Programação com Frameworks Web (P3/P4), sob orientação do Professor Jeofton Costa Melo.
+
+## 👥 Integrantes da Dupla
+
+| Nome do Aluno | RGM | Foco Principal na Contribuição |
+| :--- | :--- | :--- |
+| **Rafael Medeiros de Melo** | 40483665 | Frontend (React, Redux, Sass, Lógica de Integração Full-Stack). |
+| **Mateus Jonathas Viana dos Santos** | 40354628 | Backend (Criação da API, Conexão com MongoDB, Lógica Inicial de JWT). |
+
+## 🎯 Objetivo do Projeto
+
+Implementar um sistema de autenticação e gerenciamento de estado para um aplicativo de **Lista de Compras Full-Stack**, atendendo ao requisito MVP (Minimum Viable Project).
+
+## 🛠️ Tecnologias Utilizadas (Requisitos Obrigatórios)
+
+Este projeto atende a todos os requisitos técnicos da ementa:
+
+| Componente | Tecnologia | Propósito |
+| :--- | :--- | :--- |
+| **Backend** | Node.js (Express) & TypeScript | API RESTful e Lógica de Negócios. |
+| **Frontend** | React & TypeScript | Interface de Usuário. |
+| **Estilização** | **Sass** | Estilização avançada da UI (requisito mínimo). |
+| **Estado** | Redux Toolkit | Gerenciamento de estado e autenticação. |
+| **Autenticação** | JWT (JSON Web Token) | Segurança e controle de acesso via tokens. |
+| **Banco de Dados** | MongoDB Atlas (NoSQL) | Persistência dos dados de usuário e lista. |
+
+## 🚀 Como Rodar o Projeto
+
+### 1. Pré-requisitos
+
+* Node.js (versão 18+)
+* npm
+
+### 2. Configuração de Variáveis de Ambiente (Backend)
+
+
+### 3. Instalação e Execução
+
+O projeto deve ser iniciado em dois terminais separados a partir da raiz.
+
+#### Terminal 1: Iniciar o Backend (API)
+
+```bash
+cd backend/
+npm install
+npx ts-node src/server.ts
+```
+
+Resultado Esperado: O terminal deve mostrar ✅ Conexão com MongoDB estabelecida com sucesso! (A API rodará na porta 5000)
+
+#### Terminal 2: Iniciar o Frontend (React)
+
+```bash
+cd frontend/
+npm install
+npm start
+```
+
+Resultado Esperado: A aplicação abrirá no navegador. (O Frontend rodará na porta 3000)
+
+### 4. Credenciais de Teste
+
+Acesse a aplicação no navegador em: http://localhost:3000/login
+
+Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
+
+| Campo | Valor |
+| :--- | :--- |
+| **Usuário** | `unipe` |
+| **Senha** | `unipe` |
+
+Após o login bem-sucedido, o sistema deve redirecionar para a rota `/home`, exibindo a interface da Lista de Compras.
