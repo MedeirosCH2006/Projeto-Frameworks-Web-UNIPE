@@ -3,41 +3,37 @@
 Este é um projeto Full-Stack desenvolvido para a disciplina de Programação com Frameworks Web (P3/P4), sob orientação do Professor Jeofton Costa Melo.
 ## 👥 Integrantes da Dupla
 
-| Nome | RGM | Foco Principal |
-|------|------|----------------|
-| Rafael Medeiros de Melo | 40483665 | Frontend (React, Redux, Sass, Integração Full-Stack) |
-| Mateus Jonathas Viana dos Santos | 40354628 | Backend (API, MongoDB, JWT) |
+- Rafael Medeiros de Melo  
+  RGM: 40483665  
+  Foco: Frontend (React, Redux, Sass, Integração Full-Stack)
+
+- Mateus Jonathas Viana dos Santos  
+  RGM: 40354628  
+  Foco: Backend (API, MongoDB, JWT)
 ## 🎯 Objetivo do Projeto
 
 Implementar um sistema de autenticação e gerenciamento de estado para um aplicativo de Lista de Compras Full-Stack, atendendo ao requisito MVP (Minimum Viable Project).
 ## 🛠️ Tecnologias Utilizadas
 
-| Área | Tecnologias | Função |
-|------|-------------|--------|
-| Backend | Node.js (Express) + TypeScript | API RESTful e lógica de negócios |
-| Frontend | React + TypeScript | Interface de usuário |
-| Estilização | Sass | Estilização avançada da UI |
-| Estado | Redux Toolkit | Gerenciamento de estado e autenticação |
-| Autenticação | JWT (JSON Web Token) | Segurança e controle de acesso |
-| Banco de Dados | MongoDB Atlas (NoSQL) | Persistência dos dados |
+- Backend → Node.js (Express) + TypeScript  
+- Frontend → React + TypeScript  
+- Estilização → Sass  
+- Estado → Redux Toolkit  
+- Autenticação → JWT (JSON Web Token)  
+- Banco de Dados → MongoDB Atlas (NoSQL)
 ## 🚀 Como Rodar o Projeto
 
 ### 1. Pré-requisitos
-
-| Requisito | Versão |
-|-----------|---------|
-| Node.js | 18+ |
-| npm | Última versão |
+- Node.js 18+  
+- npm (última versão)
 ### 2. Configuração de Variáveis de Ambiente (Backend)
 
-ATENÇÃO: Crie um arquivo chamado `.env` dentro da pasta `backend/` com suas credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados.
+Crie um arquivo chamado `.env` dentro da pasta `backend/` com suas credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados.
 ### 3. Instalação e Execução
 
 O projeto deve ser iniciado em dois terminais separados a partir da raiz.
 
-#### 🔹 Terminal 1: Backend (API)
-
-```bash
+🔹 Terminal 1: Backend (API)
 cd backend/
 npm install
 npx ts-node src/server.ts
@@ -45,8 +41,8 @@ npx ts-node src/server.ts
 # Resultado esperado:
 # ✅ Conexão com MongoDB estabelecida com sucesso!
 # (API rodando na porta 5000)
-### 🔹 Terminal 2: Frontend (React)
 
+🔹 Terminal 2: Frontend (React)
 cd frontend/
 npm install
 npm start
@@ -56,10 +52,9 @@ npm start
 # (Frontend rodando na porta 3000)
 ### 4. Credenciais de Teste
 
-Acesse: http://localhost:3000/login
+Acesse: http://localhost:3000/login  
 
-| Usuário | Senha |
-|---------|-------|
-| unipe   | unipe |
+Usuário: unipe  
+Senha: unipe  
 
-Após login bem-sucedido → redirecionamento para `/home`, exibindo a Lista de Compras.
+Após login bem-sucedido → redirecionamento para /home, exibindo a Lista de Compras.
