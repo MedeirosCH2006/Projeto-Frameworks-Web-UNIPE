@@ -1,19 +1,16 @@
 # 📚 Projeto Frameworks Web - UNIPÊ 2025
 
 Este é um projeto Full-Stack desenvolvido para a disciplina de Programação com Frameworks Web (P3/P4), sob orientação do Professor Jeofton Costa Melo.
-
 ## 👥 Integrantes da Dupla
 
 | Nome | RGM | Foco Principal |
 |------|------|----------------|
 | Rafael Medeiros de Melo | 40483665 | Frontend (React, Redux, Sass, Integração Full-Stack) |
 | Mateus Jonathas Viana dos Santos | 40354628 | Backend (API, MongoDB, JWT) |
-
 ## 🎯 Objetivo do Projeto
 
 Implementar um sistema de autenticação e gerenciamento de estado para um aplicativo de Lista de Compras Full-Stack, atendendo ao requisito MVP (Minimum Viable Project).
-
-## 🛠️ Tecnologias Utilizadas (Requisitos Obrigatórios)
+## 🛠️ Tecnologias Utilizadas
 
 | Área | Tecnologias | Função |
 |------|-------------|--------|
@@ -23,7 +20,6 @@ Implementar um sistema de autenticação e gerenciamento de estado para um aplic
 | Estado | Redux Toolkit | Gerenciamento de estado e autenticação |
 | Autenticação | JWT (JSON Web Token) | Segurança e controle de acesso |
 | Banco de Dados | MongoDB Atlas (NoSQL) | Persistência dos dados |
-
 ## 🚀 Como Rodar o Projeto
 
 ### 1. Pré-requisitos
@@ -32,72 +28,38 @@ Implementar um sistema de autenticação e gerenciamento de estado para um aplic
 |-----------|---------|
 | Node.js | 18+ |
 | npm | Última versão |
-
 ### 2. Configuração de Variáveis de Ambiente (Backend)
 
-ATENÇÃO: O avaliador DEVE criar um arquivo chamado `.env` na pasta `backend/` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
-
+ATENÇÃO: Crie um arquivo chamado `.env` dentro da pasta `backend/` com suas credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados.
 ### 3. Instalação e Execução
 
 O projeto deve ser iniciado em dois terminais separados a partir da raiz.
 
-#### Terminal 1: Iniciar o Backend (API)
+#### 🔹 Terminal 1: Backend (API)
 
+```bash
 cd backend/
 npm install
 npx ts-node src/server.ts
 
-Resultado Esperado: O terminal deve mostrar ✅ Conexão com MongoDB estabelecida com sucesso! (A API rodará na porta 5000)
-
-#### Terminal 2: Iniciar o Frontend (React)
+# Resultado esperado:
+# ✅ Conexão com MongoDB estabelecida com sucesso!
+# (API rodando na porta 5000)
+### 🔹 Terminal 2: Frontend (React)
 
 cd frontend/
 npm install
 npm start
 
-Resultado Esperado: A aplicação abrirá no navegador. (O Frontend rodará na porta 3000)
-
+# Resultado esperado:
+# ✅ Aplicação abrirá no navegador
+# (Frontend rodando na porta 3000)
 ### 4. Credenciais de Teste
 
-Acesse a aplicação no navegador em: http://localhost:3000/login
+Acesse: http://localhost:3000/login
 
 | Usuário | Senha |
 |---------|-------|
-| unipe | unipe |
+| unipe   | unipe |
 
-Após o login bem-sucedido, o sistema deve redirecionar para a rota `/home`, exibindo a interface da Lista de Compras.
-
-### 3. Instalação e Execução
-
-O projeto deve ser iniciado em dois terminais separados a partir da raiz.
-
-#### Terminal 1: Iniciar o Backend (API)
-
-\`\`\`bash
-cd backend/
-npm install
-npx ts-node src/server.ts
-\`\`\`
-
-Resultado Esperado: O terminal deve mostrar ✅ Conexão com MongoDB estabelecida com sucesso! (A API rodará na porta 5000)
-
-#### Terminal 2: Iniciar o Frontend (React)
-
-\`\`\`bash
-cd frontend/
-npm install
-npm start
-\`\`\`
-
-Resultado Esperado: A aplicação abrirá no navegador. (O Frontend rodará na porta 3000)
-
-### 4. Credenciais de Teste
-
-Acesse a aplicação no navegador em: \`http://localhost:3000/login\`
-
-Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
-
-* **Usuário:** `unipe`
-* **Senha:** `unipe`
-
-Após o login bem-sucedido, o sistema deve redirecionar para a rota \`/home\`, exibindo a interface da Lista de Compras.
+Após login bem-sucedido → redirecionamento para `/home`, exibindo a Lista de Compras.
