@@ -6,8 +6,6 @@ Este é um projeto Full-Stack desenvolvido para a disciplina de Programação co
 
 | Nome do Aluno | RGM | Foco Principal na Contribuição |
 | :--- | :--- | :--- |
-| :--- | :--- | :--- |
-| :--- | :--- | :--- |
 | **Rafael Medeiros de Melo** | 40483665 | Frontend (React, Redux, Sass, Lógica de Integração Full-Stack). |
 | **Mateus Jonathas Viana dos Santos** | 40354628 | Backend (Criação da API, Conexão com MongoDB, Lógica Inicial de JWT). |
 
@@ -20,7 +18,6 @@ Implementar um sistema de autenticação e gerenciamento de estado para um aplic
 Este projeto atende a todos os requisitos técnicos da ementa:
 
 | Componente | Tecnologia | Propósito |
-| :--- | :--- | :--- |
 | :--- | :--- | :--- |
 | **Backend** | Node.js (Express) & TypeScript | API RESTful e Lógica de Negócios. |
 | **Frontend** | React & TypeScript | Interface de Usuário. |
@@ -38,7 +35,7 @@ Este projeto atende a todos os requisitos técnicos da ementa:
 
 ### 2. Configuração de Variáveis de Ambiente (Backend)
 
-**ATENÇÃO:** O avaliador **DEVE** criar um arquivo chamado `.env` na pasta `backend/` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
+**ATENÇÃO:** O avaliador **DEVE** criar um arquivo chamado \`.env\` na pasta \`backend/\` com as próprias credenciais do MongoDB Atlas para que o servidor consiga se conectar ao banco de dados e validar as credenciais de teste.
 
 ### 3. Instalação e Execução
 
@@ -46,34 +43,33 @@ O projeto deve ser iniciado em dois terminais separados a partir da raiz.
 
 #### Terminal 1: Iniciar o Backend (API)
 
-```bash
+\`\`\`bash
 cd backend/
 npm install
 npx ts-node src/server.ts
-```
+\`\`\`
 
 Resultado Esperado: O terminal deve mostrar ✅ Conexão com MongoDB estabelecida com sucesso! (A API rodará na porta 5000)
 
 #### Terminal 2: Iniciar o Frontend (React)
 
-```bash
+\`\`\`bash
 cd frontend/
 npm install
 npm start
-```
+\`\`\`
 
 Resultado Esperado: A aplicação abrirá no navegador. (O Frontend rodará na porta 3000)
 
 ### 4. Credenciais de Teste
 
-Acesse a aplicação no navegador em: `http://localhost:3000/login`
+Acesse a aplicação no navegador em: \`http://localhost:3000/login\`
 
 Para testar a autenticação Full-Stack, use as seguintes credenciais, que estão registradas e validadas no MongoDB Atlas:
 
 | Campo | Valor |
 | :--- | :--- |
-| :--- | :--- |
-| **Usuário** | `unipe` |
-| **Senha** | `unipe` |
+| **Usuário** | \`unipe\` |
+| **Senha** | \`unipe\` |
 
-Após o login bem-sucedido, o sistema deve redirecionar para a rota `/home`, exibindo a interface da Lista de Compras.
+Após o login bem-sucedido, o sistema deve redirecionar para a rota \`/home\`, exibindo a interface da Lista de Compras.
