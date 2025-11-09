@@ -73,3 +73,4 @@ Para testar a autenticação Full-Stack, use as seguintes credenciais, que estã
 | **Senha** | \`unipe\` |
 
 Após o login bem-sucedido, o sistema deve redirecionar para a rota \`/home\`, exibindo a interface da Lista de Compras.
+
