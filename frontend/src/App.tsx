@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// PÁGINAS: Caminho corrigido para arquivos .tsx diretos em src/pages
+// CORREÇÃO FINAL: Caminho simples (diretamente o arquivo .tsx)
 import LoginPage from './pages/LoginPage.tsx'; 
 import HomePage from './pages/HomePage.tsx'; 
-// CORREÇÃO FINAL AQUI: Usando './styles/App.css'
 import './styles/App.css'; 
 
 // Seletor para verificar o estado de autenticacao do Redux
@@ -17,14 +16,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          
+
           <Route path="/login" element={<LoginPage />} />
-          
+
           <Route 
             path="/home" 
             element={isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />} 
           />
-          
+
           <Route 
             path="/" 
             element={isAuthenticated ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />} 
