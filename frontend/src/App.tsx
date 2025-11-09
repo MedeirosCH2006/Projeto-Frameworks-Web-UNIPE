@@ -1,28 +1,43 @@
-// App.tsx
-
 import React from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import './styles/App.css'; 
 
-import store from './store/index'; 
-import LoginComponent from './components/LoginComponent'; 
-import ItemListComponent from './components/ItemListComponent'; 
+// Seletor para verificar o estado de autenticacao do Redux
+const isAuthenticatedSelector = (state: any) => !!state.auth.token;
 
+function App() {
+  // Puxa o estado de autenticacao
+  const isAuthenticated = useSelector(isAuthenticatedSelector);
 
-const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <div className="App">
-          <h1>Projeto Frameworks Web UNIPÊ</h1>
-          <Routes>
-            <Route path="/login" element={<LoginComponent />} /> 
-            <Route path="/" element={<ItemListComponent />} /> 
-          </Routes>
-        </div>
-      </Router>
-    </Provider>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+
+          {/* 1. Rota de Login */}
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* 2. Rota Home (Protegida) */}
+          <Route 
+            path="/home" 
+            element={isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />} 
+          />
+
+          {/* 3. Rota Raiz ("/") - Garante que redireciona para o fluxo correto */}
+          <Route 
+            path="/" 
+            element={isAuthenticated ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />} 
+          />
+
+          {/* 4. Rota 404/Fallback: Redireciona tudo que nao for encontrado. */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
