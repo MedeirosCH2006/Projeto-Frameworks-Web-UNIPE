@@ -75,7 +75,6 @@ npm start
 
 Acesse: http://localhost:3000/login  
 
-Usuário: unipe  
-Senha: unipe  
+Você deve cadastrar-se primeiro pra poder fazer login quando quiser, os itens escolhidos sempre ficam lá.
 
 Após login bem-sucedido → redirecionamento para /home, exibindo a Lista de Compras.
