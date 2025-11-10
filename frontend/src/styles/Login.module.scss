@@ -1,0 +1,90 @@
+// Garante que o módulo 'color' seja usado para funções modernas
+@use "sass:color"; 
+
+$cor-fundo-principal: #0f172a; 
+$cor-card-fundo: #1e293b;
+$cor-texto-principal: #93c5fd; 
+$cor-texto-secundario: #94a3b8; 
+$cor-input-fundo: #334155;
+$cor-input-borda: #475569;
+$cor-botao: #0ea5e9; 
+$cor-mensagem: #facc15; 
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: $cor-fundo-principal;
+    padding: 20px;
+}
+
+.loginCard {
+    padding: 30px;
+    border-radius: 12px;
+    background-color: $cor-card-fundo;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    color: white; 
+}
+
+.loginTitle {
+    color: $cor-texto-principal;
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.unipeText {
+    color: #38bdf8;
+}
+
+.loginSubtitle {
+    color: $cor-texto-secundario;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.loginInput {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid $cor-input-borda;
+    background-color: $cor-input-fundo;
+    color: white;
+    font-size: 16px;
+    
+    &::placeholder {
+        color: $cor-texto-secundario;
+    }
+}
+
+.loginButton {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: $cor-botao;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    &:hover {
+        /* CORREÇÃO APLICADA AQUI: Usando color.adjust no lugar de darken() */
+        background-color: color.adjust($cor-botao, $lightness: -10%); 
+    }
+}
+
+.loginMessage {
+    margin-top: 20px;
+    color: $cor-mensagem;
+    font-size: 14px;
+}

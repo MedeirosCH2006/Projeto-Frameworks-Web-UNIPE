@@ -1,0 +1,16 @@
+/* Estilos globais (Minimalista para evitar conflitos) */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #242424; /* Fundo escuro */
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  /* CRÍTICO: Garante que o elemento root ocupa 100% da tela */
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,38 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// CORREÇÃO FINAL: Caminho simples (diretamente o arquivo .tsx)
-import LoginPage from './pages/LoginPage.tsx'; 
-import HomePage from './pages/HomePage.tsx'; 
-import './styles/App.css'; 
-
-// Seletor para verificar o estado de autenticacao do Redux
-const isAuthenticatedSelector = (state: any) => !!state.auth.token;
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+// O ProtectedRoute foi removido para evitar o erro de <Router> aninhado e dependências ausentes.
 
 function App() {
-  const isAuthenticated = useSelector(isAuthenticatedSelector);
-
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
+    <Routes>
+      {/* Rota raiz redireciona para Login */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      
+      {/* Rota de Login */}
+      <Route path="/login" element={<LoginPage />} />
+      
+      {/* CRÍTICO: Rota Home agora é acessível diretamente (O Login/Token fará a proteção) */}
+      <Route path="/home" element={<HomePage />} />
 
-          <Route path="/login" element={<LoginPage />} />
-
-          <Route 
-            path="/home" 
-            element={isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />} 
-          />
-
-          <Route 
-            path="/" 
-            element={isAuthenticated ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />} 
-          />
-
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+      {/* Rota 404 agora redireciona para o Login */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
   );
 }
 

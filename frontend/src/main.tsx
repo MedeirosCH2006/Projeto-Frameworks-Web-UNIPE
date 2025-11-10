@@ -1,20 +1,18 @@
-// index.tsx
+import './index.css'; // Deve ser a primeira importação CSS
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/global.scss';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import App from './App.tsx';
+import { store } from './store/store.ts';
 
-const rootElement = document.getElementById('root');
-
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-} else {
-  console.error("Root element not found! Ensure an element with id='root' exists in your HTML.");
-}; 
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+);

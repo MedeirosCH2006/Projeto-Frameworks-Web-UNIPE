@@ -1,0 +1,216 @@
+/* Estilos globais para a aplicação */
+$cor-primaria: #4CAF50; 
+$cor-secundaria: #2196F3; 
+$fundo-escuro: #121212;
+$container-fundo: #1e1e1e;
+$texto-claro: #e0e0e0;
+$borda-escura: #333;
+$erro: #f44336;
+
+@use "sass:color";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: $fundo-escuro; 
+    color: $texto-claro;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: $container-fundo; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    min-height: 80vh;
+}
+
+/* Estilos da Página Home (Lista de Compras) */
+.home-container {
+    h1 {
+        color: $cor-primaria; 
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid $borda-escura;
+        padding-bottom: 10px;
+    }
+    
+    .item-input-group {
+        display: flex; 
+        margin-bottom: 20px;
+        align-items: center; 
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid $borda-escura;
+            border-radius: 4px 0 0 4px;
+            background-color: #2c2c2c;
+            color: $texto-claro;
+            height: 40px; 
+        }
+
+        button {
+            height: 40px; 
+            padding: 0 15px; 
+            background-color: $cor-primaria;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+
+            &:hover:not(:disabled) {
+                background-color: color.adjust($cor-primaria, $lightness: -5%); 
+            }
+        }
+    }
+}
+
+.error-message {
+    color: $erro; 
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        border: 1px solid $borda-escura;
+        border-radius: 4px;
+        background-color: #2c2c2c;
+
+        &.concluded .item-name {
+            text-decoration: line-through;
+            color: #888;
+        }
+    }
+}
+
+.item-name {
+    flex-grow: 1;
+}
+
+.item-actions {
+    button {
+        margin-left: 8px;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .conclude-btn {
+        background-color: $cor-secundaria; 
+        color: white;
+        &:hover {
+            background-color: color.adjust($cor-secundaria, $lightness: -5%);
+        }
+    }
+
+    .delete-btn {
+        background-color: $erro; 
+        color: white;
+        &:hover {
+            background-color: color.adjust($erro, $lightness: -5%);
+        }
+    }
+}
+
+/* Estilos de Botões e Seções */
+.logout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: $erro;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: color.adjust($erro, $lightness: -5%);
+    }
+}
+
+.section-title {
+    color: $cor-secundaria; 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px dashed $borda-escura;
+    padding-bottom: 5px;
+}
+
+/* Estilos da Página de Login */
+.login-container {
+    padding: 30px;
+    background-color: $container-fundo;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+
+    .login-title {
+        color: $cor-primaria;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .login-form {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: $texto-claro;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $borda-escura;
+            border-radius: 4px;
+            background-color: #2c2c2c;
+            color: $texto-claro;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: $cor-secundaria;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+
+            &:hover:not(:disabled) {
+                background-color: color.adjust($cor-secundaria, $lightness: -5%);
+            }
+        }
+    }
+}

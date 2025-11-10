@@ -1,0 +1,6 @@
+# Dependências
+/node_modules
+/dist
+
+# Arquivos de Ambiente (Segredos)
+.env
