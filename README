@@ -58,7 +58,7 @@ npx ts-node src/server.ts
 
 # Resultado esperado:  
 # ✅ Conexão com MongoDB estabelecida com sucesso!  
-# (API rodando na porta 5000)
+# (API rodando na porta 3001)
 
 🔹 Terminal 2: Frontend (React)  
 cd frontend/  
