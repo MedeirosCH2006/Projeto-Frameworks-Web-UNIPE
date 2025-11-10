@@ -1,0 +1,115 @@
+/* SASS para a HomePage.tsx */
+
+$unipe-green: #4CAF50;
+$error-red: #ff6b6b;
+$dark-bg: #2d2d2d;
+$container-bg: #3c3c3c;
+$input-bg: #444;
+$text-color: #fff;
+
+.home-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    background-color: $container-bg;
+    color: $text-color;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+        color: $unipe-green;
+        font-size: 1.8em;
+    }
+
+    .logout-button {
+        padding: 8px 15px;
+        background-color: $error-red;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($error-red, 10%);
+        }
+    }
+}
+
+.add-item-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    input[type="text"] {
+        flex-grow: 3;
+    }
+
+    input[type="number"] {
+        flex-grow: 1;
+        max-width: 80px;
+    }
+
+    input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: $input-bg;
+        color: $text-color;
+        font-size: 1em;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        background-color: $unipe-green;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($unipe-green, 10%);
+        }
+    }
+}
+
+.shopping-list h2 {
+    border-bottom: 2px solid $unipe-green;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.shopping-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shopping-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .quantity {
+        font-weight: bold;
+        color: $unipe-green;
+    }
+}
+
+.error-message {
+    color: $error-red;
+    text-align: center;
+    font-size: 1.2em;
+}
