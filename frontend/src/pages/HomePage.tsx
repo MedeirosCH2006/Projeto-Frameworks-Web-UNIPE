@@ -19,7 +19,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const HomePage: React.FC = () => {
     const [items, setItems] = useState<ShoppingItem[]>([]);
     const [newItemName, setNewItemName] = useState('');
-    const [newItemQuantity, setNewItemQuantity] = useState(1);
+    const [newItemQuantity, setNewItemQuantity] = useState(''); // Alterado para string vazia
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
                         type="number"
                         placeholder="Qtd"
                         value={newItemQuantity}
-                        onChange={(e) => setNewItemQuantity(parseInt(e.target.value === '' ? '0' : e.target.value) || 0)}
+                        onChange={(e) => setNewItemQuantity(parseInt(e.target.value === '' ? '0' : e.target.value) || 0)}# Adiciona o arquivo modificado
                         min="0" // Permite o zero (ou campo vazio) no browser!
                         required
                     />
