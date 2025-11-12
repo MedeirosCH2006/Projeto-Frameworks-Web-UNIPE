@@ -72,29 +72,45 @@ const HomePage: React.FC = () => {
         }
     };
 
-    // Função para adicionar item (COMPLETA)
-    const addItem = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!token || !newItemName.trim()) return;
+const addItem = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-        try {
-            await axios.post(`${API_BASE_URL}/shopping/items`, {
-                name: newItemName.trim(),
-                quantity: newItemQuantity
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+    // 1. DECLARAÇÃO E CONVERSÃO DA QUANTIDADE (CORRIGIDO)
+    const quantity = parseInt(newItemQuantity) || 0; 
+    
+    // ** VALIDAÇÃO CRÍTICA (Bloqueia Nome Vazio e Quantidade < 1) **
+    if (!newItemName.trim()) {
+        setError('Por favor, insira o nome do item.');
+        return; 
+    }
+    
+    if (quantity < 1) {
+        setError('A quantidade mínima deve ser 1.');
+        return; // Impede o envio para a API
+    }
+    // ** FIM DA VALIDAÇÃO **
 
-            setNewItemName('');
-            setNewItemQuantity('');
-            fetchItems(); // Recarrega a lista
-        } catch (error) {
-            console.error("Erro ao adicionar item:", error);
-            setError('Falha ao adicionar item.');
-        }
-    };
+    if (!token) return; 
+
+    try {
+        await axios.post(`${API_BASE_URL}/shopping/items`, {
+            name: newItemName.trim(),
+            quantity: quantity // Envia o NÚMERO validado
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        setNewItemName('');
+        setNewItemQuantity('');
+        setError(''); // Limpa o erro se o envio for bem-sucedido
+        fetchItems(); // Recarrega a lista
+    } catch (error) {
+        console.error("Erro ao adicionar item:", error);
+        setError('Falha ao adicionar item.');
+    }
+};
 
     // 🗑️ FUNÇÃO PARA DECREMENTAR A QUANTIDADE (Remove APENAS 1 unidade)
     const handleRemoveOne = async (itemName: string) => {
