@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
             });
 
             setNewItemName('');
-            setNewItemQuantity(1);
+            setNewItemQuantity('');
             fetchItems(); // Recarrega a lista
         } catch (error) {
             console.error("Erro ao adicionar item:", error);
@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
                         type="number"
                         placeholder="Qtd"
                         value={newItemQuantity}
-                        onChange={(e) => setNewItemQuantity(parseInt(e.target.value === '' ? '0' : e.target.value) || 0)}# Adiciona o arquivo modificado
+                        onChange={(e) => setNewItemQuantity((parseInt(e.target.value === '' ? '0' : e.target.value) || 0).toString())}
                         min="0" // Permite o zero (ou campo vazio) no browser!
                         required
                     />
