@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
                         type="number"
                         placeholder="Qtd"
                         value={newItemQuantity}
-                        onChange={(e) => setNewItemQuantity(Math.max(1, parseInt(e.target.value === '' ? '0' : e.target.value) || 1))}
+                        onChange={(e) => setNewItemQuantity(parseInt(e.target.value === '' ? '0' : e.target.value) || 0)}
                         min="0" // Permite o zero (ou campo vazio) no browser!
                         required
                     />
