@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
                         type="number"
                         placeholder="Qtd"
                         value={newItemQuantity}
-                        onChange={(e) => setNewItemQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                        onChange={(e) => setNewItemQuantity(Math.max(1, parseInt(e.target.value === '' ? '1' : e.target.value) || 1))}
                         min="1"
                         required
                     />
